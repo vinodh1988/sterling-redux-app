@@ -6,10 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import { appstate } from './Redux/Store/store';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
-const store = createStore(appstate);
+
+const store = createStore(appstate,applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
